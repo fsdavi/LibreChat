@@ -86,8 +86,9 @@ const registerUser = async (user) => {
     // todo: implement refresh token
     // const refreshToken = newUser.generateRefreshToken();
     // newUser.refreshToken.push({ refreshToken });
+    console.log(newUser.password);
     const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(newUser.password, salt);
+    const hash = bcrypt.hashSync(password, salt);
     newUser.password = hash;
     newUser.save();
 
